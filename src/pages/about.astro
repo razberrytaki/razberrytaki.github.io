@@ -9,21 +9,25 @@ import { GITHUB_URL, SITE_TITLE } from '../consts';
 <!doctype html>
 <html lang="ko">
   <head>
-    <BaseHead title={`About | ${SITE_TITLE}`} description="Razberry Taki 기술 블로그 소개." />
+    <BaseHead title={`소개 | ${SITE_TITLE}`} description="라즈베리타키 기술 블로그 소개." />
   </head>
   <body>
     <Header />
     <main>
-      <h1>About</h1>
+      <h1>소개</h1>
       <p>
-        백엔드, AI/RAG, DevOps, 모바일/WebView 디버깅에서 얻은 실전 기록을 공개 가능한 형태로 정리합니다.
-        원본 작업 메모는 private knowledge base에 남기고, 이 블로그에는 재현 가능한 맥락과 안전한 경계만 공개합니다.
+        백엔드, AI/RAG, 운영 자동화, 모바일/WebView 디버깅을 하면서 겪은 일을 적습니다.
+        잘 정리된 성공담보다는, 막혔던 지점과 확인한 근거를 남기는 쪽에 가깝습니다.
       </p>
-      <h2>Publishing rules</h2>
+      <p>
+        원본 메모에는 회사 이름, 내부 주소, 계정, 사람 이름처럼 밖에 꺼내면 안 되는 내용이 섞일 수 있습니다.
+        그래서 이 블로그에는 공개해도 되는 문제 구조와 해결 과정만 옮깁니다.
+      </p>
+      <h2>글을 올리기 전에 보는 것</h2>
       <ul>
-        <li>민감한 내부 도메인, 계정, 키, 사람 이름, 운영 값은 공개하지 않습니다.</li>
-        <li>코드나 수치 claim은 가능한 한 repo, command, build result와 연결합니다.</li>
-        <li>실험/포트폴리오 글은 production claim과 non-claim을 분리합니다.</li>
+        <li>내부 도메인, 계정, 키, 사람 이름, 운영 값은 빼거나 바꿉니다.</li>
+        <li>수치나 기술 주장은 가능하면 코드, 명령어, 빌드 결과와 연결합니다.</li>
+        <li>포트폴리오 글은 "해봤다"와 "운영에서 검증됐다"를 섞어 말하지 않습니다.</li>
       </ul>
       <p><a href={GITHUB_URL}>GitHub에서 더 보기</a></p>
     </main>

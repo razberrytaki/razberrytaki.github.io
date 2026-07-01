@@ -31,13 +31,13 @@ const { title, description, pubDate, updatedDate, tags, sourceBoundary } = Astro
         <div class="title">
           <div class="date">
             <FormattedDate date={pubDate} />
-            {updatedDate && <div class="last-updated-on">Updated <FormattedDate date={updatedDate} /></div>}
+            {updatedDate && <div class="last-updated-on">수정: <FormattedDate date={updatedDate} /></div>}
           </div>
           <h1>{title}</h1>
           <p>{description}</p>
           <ul class="badge-list">{tags.map((tag) => <li class="badge">{tag}</li>)}</ul>
         </div>
-        <div class="source-boundary"><strong>Public boundary:</strong> {sourceBoundary}</div>
+        <div class="source-boundary"><strong>공개 범위:</strong> {sourceBoundary}</div>
         <slot />
       </article>
     </main>

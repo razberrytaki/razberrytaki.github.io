@@ -1,64 +1,64 @@
 
 ---
-title: "GitHub Pages를 기술 블로그의 원본 저장소로 쓰기"
-description: "Obsidian의 private note와 공개 블로그를 분리하고, GitHub Pages를 canonical source로 두는 운영 구조를 정했다."
+title: "GitHub Pages에 기술 블로그를 열었다"
+description: "비공개 메모와 공개 글을 분리하려고 GitHub Pages를 블로그의 원본 저장소로 쓰기로 했다."
 pubDate: 2026-07-01
 tags:
   - github-pages
   - astro
   - publishing
   - portfolio
-sourceBoundary: "Meta publishing note. No private source material."
+sourceBoundary: "블로그 운영 방식에 대한 글. 비공개 작업 메모는 포함하지 않음."
 ---
 
-기술 블로그의 첫 결정은 글감이 아니라 **어디를 원본으로 둘 것인가**였다.
+기술 블로그를 만들면서 먼저 정한 건 글감이 아니었다. **원본을 어디에 둘지**였다.
 
-이번 블로그는 GitHub Pages를 원본으로 둔다. 이유는 단순하다. 내가 쓰려는 글 대부분은 코드, 테스트, 배포, 운영 기록과 연결된다. 따라서 글이 GitHub 계정, repository, commit, 검증 명령과 붙어 있을수록 신뢰도가 높다.
+Velog에 바로 올릴 수도 있었다. 그게 더 편하다. 그래도 이번에는 GitHub Pages를 원본으로 두기로 했다. 내가 쓰려는 글이 대부분 코드, 테스트, 배포, 운영 기록에서 나오기 때문이다. 글만 덩그러니 있는 것보다 저장소, 커밋, 실행 결과와 붙어 있는 편이 낫다.
 
-## 운영 구조
+## 운영 방식
 
 ```text
-Private notes: Obsidian / local wiki
-Public source: GitHub Pages repository
-Distribution: Velog, LinkedIn, Dev.to when useful
-Evidence: GitHub repositories, docs, build output
+비공개 메모: Obsidian / 로컬 위키
+공개 원본: GitHub Pages 저장소
+유통 채널: Velog, LinkedIn, 필요하면 Dev.to
+근거 자료: GitHub 저장소, 문서, 빌드 결과
 ```
 
-핵심은 private note와 public post를 섞지 않는 것이다.
+중요한 건 비공개 메모와 공개 글을 섞지 않는 것이다.
 
-- 원본 작업 메모에는 민감한 맥락이 남을 수 있다.
-- 공개 블로그에는 익명화된 문제 구조, 재현 가능한 명령, 검증 결과만 남긴다.
-- Velog와 LinkedIn은 유통 채널이고, canonical source는 이 사이트다.
+- 원본 메모에는 밖에 꺼내면 안 되는 맥락이 남을 수 있다.
+- 공개 글에는 문제 구조, 재현 방법, 확인한 결과만 남긴다.
+- Velog와 LinkedIn은 퍼뜨리는 곳이고, 원본은 이 사이트로 둔다.
 
 ## 왜 GitHub Pages인가
 
-GitHub Pages는 화려한 CMS가 아니다. 대신 기술 블로그에 필요한 장점이 있다.
+GitHub Pages가 특별히 멋진 도구라서 고른 건 아니다. 오히려 단순해서 좋다.
 
-1. 글과 코드가 같은 계정 아래 있다.
-2. 모든 변경이 git history로 남는다.
-3. GitHub Actions로 build gate를 붙일 수 있다.
-4. custom domain을 붙이기 쉽다.
-5. 정적 사이트라 운영 비용과 장애면이 작다.
+1. 글과 코드가 같은 계정 아래에 있다.
+2. 글 수정 이력이 Git에 남는다.
+3. GitHub Actions로 빌드 검사를 붙일 수 있다.
+4. 나중에 도메인을 붙이기 쉽다.
+5. 정적 사이트라 유지비가 거의 없다.
 
-블로그 자체도 하나의 작은 engineering artifact로 관리할 수 있다.
+블로그도 작은 프로젝트처럼 다루면 된다. 글을 고치고, 빌드하고, 배포한다.
 
-## 공개 전 검사
+## 공개 전에 막아야 하는 것
 
-이 repo에는 최소한의 public content check를 둔다.
+이 저장소에는 간단한 공개 전 검사를 넣어뒀다.
 
 ```text
 npm run check:content
 npm run build
 ```
 
-검사 목적은 완벽한 보안이 아니라 실수를 줄이는 것이다. 내부 도메인, 계정 ID, secret, private note 경로 같은 문자열이 공개 repo에 들어오는 것을 초기에 막는다.
+완벽한 보안 도구는 아니다. 그래도 실수는 줄일 수 있다. 내부 주소, 계정 번호처럼 보이는 값, 토큰, 비공개 경로가 글에 들어오면 먼저 걸리게 해뒀다.
 
-## 다음 글 후보
+## 처음 쓸 글
 
-초기 글은 공개 부담이 낮고 검증 기록이 명확한 것부터 쓴다.
+처음부터 큰 글을 쓰면 아마 또 미뤄진다. 공개 부담이 낮고, 확인한 결과가 남아 있는 것부터 쓸 생각이다.
 
-1. PWA service worker cache 때문에 삭제한 UI가 다시 보인 문제
-2. RAG 포트폴리오에서 과장 claim을 scanner로 막는 방법
-3. React Native WebView에서 analytics identity를 native/web 양쪽에 동기화하는 방법
+1. PWA service worker 캐시 때문에 지운 UI가 다시 보인 문제
+2. RAG 포트폴리오에서 과장된 설명을 검사기로 막은 일
+3. React Native WebView에서 analytics 사용자 식별이 둘로 갈라진 문제
 
-첫 목표는 글을 많이 쓰는 것이 아니다. **비공개 운영 메모를 공개 가능한 기술 설명으로 바꾸는 pipeline을 만드는 것**이다.
+목표는 대단한 글을 많이 쓰는 게 아니다. 비공개 작업 메모를 밖에 내놓을 수 있는 기술 글로 바꾸는 습관을 만드는 것이다.

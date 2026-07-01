@@ -26,8 +26,8 @@ const posts = (await getCollection('blog')).filter((post) => !post.data.draft).s
   <body>
     <Header />
     <main>
-      <h1>Blog</h1>
-      <p>공개 가능한 기술 기록만 남깁니다. 민감한 운영 값, 내부 식별자, 비공개 원본은 포함하지 않습니다.</p>
+      <h1>글</h1>
+      <p>밖에 꺼내도 되는 기술 기록만 모읍니다. 내부 주소, 계정, 키, 사람 이름은 넣지 않습니다.</p>
       <ul class="posts">
         {posts.map((post) => (
           <li>

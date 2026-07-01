@@ -9,25 +9,25 @@ import { SITE_TITLE } from '../consts';
 <!doctype html>
 <html lang="ko">
   <head>
-    <BaseHead title={`Projects | ${SITE_TITLE}`} description="공개 가능한 프로젝트와 글감 후보." />
+    <BaseHead title={`프로젝트 | ${SITE_TITLE}`} description="글로 풀어볼 만한 프로젝트들." />
   </head>
   <body>
     <Header />
     <main>
-      <h1>Projects</h1>
-      <p>블로그 글은 코드, 문서, 검증 로그와 연결되는 프로젝트를 중심으로 작성합니다.</p>
+      <h1>프로젝트</h1>
+      <p>글은 보통 코드, 문서, 검증 로그가 남아 있는 프로젝트에서 시작합니다.</p>
       <div class="card-grid">
         <section class="card">
           <h3>EvidenceRAG Lab</h3>
-          <p>근거 기반 RAG, citation validation, claim safety scanner, public repo hygiene.</p>
+          <p>RAG가 근거 없이 답하지 않게 만드는 실험입니다. 인용, 거절 조건, 공개 저장소 검사기를 다룹니다.</p>
         </section>
         <section class="card">
           <h3>Monkeytype privacy fork</h3>
-          <p>upstream sync, privacy boundary, PWA service worker cache, Cloudflare Pages.</p>
+          <p>오픈소스 타자 연습 앱을 개인용 privacy fork로 유지합니다. 광고 제거, PWA 캐시, Cloudflare Pages 배포 기록이 있습니다.</p>
         </section>
         <section class="card">
           <h3>Takifairy bot ops</h3>
-          <p>Discord bot, local Docker production, Redis conversation context, TTS runtime.</p>
+          <p>Discord 봇을 로컬 Docker 환경에서 운영합니다. Redis 대화 기록, TTS 런타임, 의존성 정리를 다룹니다.</p>
         </section>
       </div>
     </main>

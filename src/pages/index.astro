@@ -34,11 +34,11 @@ const posts = (await getCollection('blog')).filter((post) => !post.data.draft).s
     <Header />
     <main>
       <section class="hero">
-        <div class="eyebrow">Backend · AI/RAG · DevOps · Debugging</div>
-        <h1>검증 가능한 기술 기록을 공개 글로 정리합니다.</h1>
+        <div class="eyebrow">백엔드 · AI/RAG · 운영 · 디버깅</div>
+        <h1>삽질한 만큼만 씁니다.</h1>
         <p>
-          실험, 장애 조사, 테스트 게이트, 운영 자동화에서 나온 기록을 공개 가능한 형태로 정제합니다.
-          원본 메모는 private, 이 사이트는 sanitized public archive 입니다.
+          실험하다 막힌 것, 배포하다 깨진 것, 테스트로 잡은 것을 글로 남깁니다.
+          비공개 메모는 따로 두고, 여기는 밖에 꺼내도 되는 이야기만 정리합니다.
         </p>
         <div class="actions">
           <a class="button primary" href="/blog/">글 보기</a>
@@ -47,25 +47,25 @@ const posts = (await getCollection('blog')).filter((post) => !post.data.draft).s
       </section>
 
       <section class="section">
-        <h2>Focus</h2>
+        <h2>주로 쓰는 것</h2>
         <div class="card-grid">
           <div class="card">
-            <h3>Evidence-bound RAG</h3>
-            <p>검색 품질, 인용, 근거 부족 거절, claim safety gate.</p>
+            <h3>근거를 남기는 RAG</h3>
+            <p>답을 잘 만드는 것보다, 근거가 없을 때 멈추는 쪽에 관심이 많습니다.</p>
           </div>
           <div class="card">
-            <h3>Operational debugging</h3>
-            <p>PWA cache, WebView, mobile runtime, production-like local checks.</p>
+            <h3>운영 중 만난 버그</h3>
+            <p>PWA 캐시, WebView, 모바일 런타임처럼 책보다 로그가 먼저인 문제를 다룹니다.</p>
           </div>
           <div class="card">
-            <h3>Public repo hygiene</h3>
-            <p>secret scan, supply-chain gate, 과장 claim 차단, reproducible verification.</p>
+            <h3>공개 저장소 다듬기</h3>
+            <p>비밀값 검사, 의존성 점검, 과장된 설명 막기처럼 공개 전에 필요한 일을 적습니다.</p>
           </div>
         </div>
       </section>
 
       <section class="section">
-        <h2>Latest posts</h2>
+        <h2>최근 글</h2>
         <ul class="post-list">
           {posts.map((post) => (
             <li>
