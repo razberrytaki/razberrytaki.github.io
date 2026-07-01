@@ -1,7 +1,7 @@
 
 ---
-title: "GitHub Pages에 기술 블로그를 열었다"
-description: "비공개 메모와 공개 글을 분리하려고 GitHub Pages를 블로그의 원본 저장소로 쓰기로 했다."
+title: "블로그, 일단 GitHub Pages로 시작하기로 했다"
+description: "비공개 메모와 공개 글을 분리하려고 기술 블로그의 원본을 GitHub Pages에 두기로 했다."
 pubDate: 2026-07-01
 tags:
   - github-pages
