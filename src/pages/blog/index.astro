@@ -1,0 +1,48 @@
+
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import Header from '../../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
+
+const posts = (await getCollection('blog')).filter((post) => !post.data.draft).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <BaseHead title={`Blog | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+    <style>
+      .posts { list-style: none; padding: 0; display: grid; gap: 1rem; }
+      .posts a { color: inherit; text-decoration: none; }
+      article { border: 1px solid rgb(var(--gray-light)); border-radius: 18px; padding: 1.2rem; background: rgba(255,255,255,0.86); }
+      article:hover { box-shadow: var(--box-shadow); }
+      .date { color: rgb(var(--gray)); font-size: 0.9rem; }
+      .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.75rem; }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <h1>Blog</h1>
+      <p>공개 가능한 기술 기록만 남깁니다. 민감한 운영 값, 내부 식별자, 비공개 원본은 포함하지 않습니다.</p>
+      <ul class="posts">
+        {posts.map((post) => (
+          <li>
+            <a href={`/blog/${post.id}/`}>
+              <article>
+                <div class="date"><FormattedDate date={post.data.pubDate} /></div>
+                <h2>{post.data.title}</h2>
+                <p>{post.data.description}</p>
+                <div class="tags">{post.data.tags.map((tag) => <span class="badge">{tag}</span>)}</div>
+              </article>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </main>
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://razberrytaki.github.io/sitemap-index.xml

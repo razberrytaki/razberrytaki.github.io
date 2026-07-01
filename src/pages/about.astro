@@ -1,0 +1,32 @@
+
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { GITHUB_URL, SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <BaseHead title={`About | ${SITE_TITLE}`} description="Razberry Taki 기술 블로그 소개." />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <h1>About</h1>
+      <p>
+        백엔드, AI/RAG, DevOps, 모바일/WebView 디버깅에서 얻은 실전 기록을 공개 가능한 형태로 정리합니다.
+        원본 작업 메모는 private knowledge base에 남기고, 이 블로그에는 재현 가능한 맥락과 안전한 경계만 공개합니다.
+      </p>
+      <h2>Publishing rules</h2>
+      <ul>
+        <li>민감한 내부 도메인, 계정, 키, 사람 이름, 운영 값은 공개하지 않습니다.</li>
+        <li>코드나 수치 claim은 가능한 한 repo, command, build result와 연결합니다.</li>
+        <li>실험/포트폴리오 글은 production claim과 non-claim을 분리합니다.</li>
+      </ul>
+      <p><a href={GITHUB_URL}>GitHub에서 더 보기</a></p>
+    </main>
+    <Footer />
+  </body>
+</html>

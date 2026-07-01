@@ -1,0 +1,11 @@
+
+---
+import { SITE_TITLE } from '../consts';
+const year = new Date().getFullYear();
+---
+<footer>
+  <p>© {year} {SITE_TITLE}. Built with Astro and GitHub Pages.</p>
+</footer>
+<style>
+  footer { color: rgb(var(--gray)); text-align: center; padding: 2rem 1rem 3rem; font-size: 0.9rem; }
+</style>

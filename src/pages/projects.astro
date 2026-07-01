@@ -1,0 +1,36 @@
+
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <BaseHead title={`Projects | ${SITE_TITLE}`} description="공개 가능한 프로젝트와 글감 후보." />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <h1>Projects</h1>
+      <p>블로그 글은 코드, 문서, 검증 로그와 연결되는 프로젝트를 중심으로 작성합니다.</p>
+      <div class="card-grid">
+        <section class="card">
+          <h3>EvidenceRAG Lab</h3>
+          <p>근거 기반 RAG, citation validation, claim safety scanner, public repo hygiene.</p>
+        </section>
+        <section class="card">
+          <h3>Monkeytype privacy fork</h3>
+          <p>upstream sync, privacy boundary, PWA service worker cache, Cloudflare Pages.</p>
+        </section>
+        <section class="card">
+          <h3>Takifairy bot ops</h3>
+          <p>Discord bot, local Docker production, Redis conversation context, TTS runtime.</p>
+        </section>
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,86 @@
+
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+const posts = (await getCollection('blog')).filter((post) => !post.data.draft).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 3);
+---
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <style>
+      .hero { padding: 4rem 0 2rem; }
+      .eyebrow { color: var(--accent); font-weight: 700; margin-bottom: 0.75rem; }
+      .hero p { max-width: 720px; color: rgb(var(--gray)); font-size: 1.12rem; }
+      .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+      .button { display: inline-block; border-radius: 999px; padding: 0.72rem 1rem; text-decoration: none; font-weight: 700; }
+      .primary { background: rgb(var(--black)); color: white; }
+      .secondary { border: 1px solid rgb(var(--gray-light)); color: rgb(var(--black)); background: white; }
+      .section { margin-top: 3rem; }
+      .post-list { list-style: none; padding: 0; display: grid; gap: 1rem; }
+      .post-list a { text-decoration: none; color: inherit; }
+      .post-list article { border: 1px solid rgb(var(--gray-light)); border-radius: 18px; padding: 1.1rem; background: rgba(255,255,255,0.85); }
+      .post-list article:hover { box-shadow: var(--box-shadow); }
+      .date { color: rgb(var(--gray)); font-size: 0.92rem; }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <section class="hero">
+        <div class="eyebrow">Backend · AI/RAG · DevOps · Debugging</div>
+        <h1>검증 가능한 기술 기록을 공개 글로 정리합니다.</h1>
+        <p>
+          실험, 장애 조사, 테스트 게이트, 운영 자동화에서 나온 기록을 공개 가능한 형태로 정제합니다.
+          원본 메모는 private, 이 사이트는 sanitized public archive 입니다.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="/blog/">글 보기</a>
+          <a class="button secondary" href="/projects/">프로젝트 보기</a>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Focus</h2>
+        <div class="card-grid">
+          <div class="card">
+            <h3>Evidence-bound RAG</h3>
+            <p>검색 품질, 인용, 근거 부족 거절, claim safety gate.</p>
+          </div>
+          <div class="card">
+            <h3>Operational debugging</h3>
+            <p>PWA cache, WebView, mobile runtime, production-like local checks.</p>
+          </div>
+          <div class="card">
+            <h3>Public repo hygiene</h3>
+            <p>secret scan, supply-chain gate, 과장 claim 차단, reproducible verification.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Latest posts</h2>
+        <ul class="post-list">
+          {posts.map((post) => (
+            <li>
+              <a href={`/blog/${post.id}/`}>
+                <article>
+                  <div class="date"><FormattedDate date={post.data.pubDate} /></div>
+                  <h3>{post.data.title}</h3>
+                  <p>{post.data.description}</p>
+                </article>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>
